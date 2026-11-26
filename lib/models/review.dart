@@ -1,0 +1,22 @@
+class Review {
+  final int rating;
+  final String comment;
+  final String reviewerName;
+  final DateTime date;
+
+  const Review({
+    required this.rating,
+    required this.comment,
+    required this.reviewerName,
+    required this.date,
+  });
+
+  factory Review.fromJson(Map<String, dynamic> json) {
+    return Review(
+      rating: (json['rating'] as num).toInt(),
+      comment: json['comment'] as String,
+      reviewerName: json['reviewerName'] as String,
+      date: DateTime.parse(json['date'] as String),
+    );
+  }
+}
